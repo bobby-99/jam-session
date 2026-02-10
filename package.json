@@ -1,0 +1,32 @@
+{
+  "name": "jam_session",
+  "version": "1.0.0",
+  "description": "- React 18 - Vite 5 - React Router v6 - Tailwind CSS - Axios - Socket.io client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev --workspace @jam-session/server\" \"npm run dev --workspace @jam-session/client\"",
+    "build": "npm run build --workspace @jam-session/server && npm run build --workspace @jam-session/client",
+    "start": "npm run start --workspace @jam-session/server",
+    "db:migrate": "npm run db:migrate --workspace @jam-session/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobby-99/jam-session.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bobby-99/jam-session/issues"
+  },
+  "homepage": "https://github.com/bobby-99/jam-session#readme",
+  "private": "true",
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
