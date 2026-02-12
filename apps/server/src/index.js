@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { pool } from "./db/pool.js";
 import { requireAuth } from "./middleware/auth.js";
 import { signToken } from "./utils/jwt.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
 
 dotenv.config();
 
@@ -43,3 +44,6 @@ app.get("/api/dev-token", (req, res) => {
 app.get("/api/protected", requireAuth, (req, res) => {
     res.json({ message: "Protected route", user: req.user });
 });
+
+app.use("/api/sessions", sessionRoutes);
+
