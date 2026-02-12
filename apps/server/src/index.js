@@ -4,6 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import { pool } from "./db/pool.js";
+import { requireAuth } from "./middleware/auth.js";
+import { signToken } from "./utils/jwt.js";
 
 dotenv.config();
 
@@ -31,4 +33,13 @@ app.get("/api/db-test", async (req, res) => {
         console.log(err);
         res.status(500).json({ error: "Database connection failed" })
     }
+});
+
+app.get("/api/dev-token", (req, res) => {
+    const token = signToken({ id: "test-host" });
+    res.json({ token });
+});
+
+app.get("/api/protected", requireAuth, (req, res) => {
+    res.json({ message: "Protected route", user: req.user });
 });
