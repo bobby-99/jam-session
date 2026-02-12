@@ -22,7 +22,7 @@
     "url": "https://github.com/bobby-99/jam-session/issues"
   },
   "homepage": "https://github.com/bobby-99/jam-session#readme",
-  "private": "true",
+  "private": true,
   "workspaces": [
     "apps/*"
   ],

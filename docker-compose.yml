@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: jam-session-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: party_dj
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5433:5432'
+    volumes:
+      - 'jam_session_pgdata:/var/lib/postgresql/data'
+
+volumes:
+  jam_session_pgdata:
